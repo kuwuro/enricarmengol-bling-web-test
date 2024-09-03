@@ -51,12 +51,12 @@ export default function Details({ params }) {
 
     if (notFound) {
         return (
-            <main className="flex min-h-screen flex-col items-center justify-center lg:p-24 p-12">
+            <main className="flex min-h-screen flex-col items-center justify-center lg:p-24 p-12 font-dmsans">
                 <h1 className="text-4xl font-bold text-center mb-4">Pokémon Not Found</h1>
                 <p className="text-lg text-center mb-8">
                     The Pokémon "{params.entry}" doesn't exist.<br/>Please check the name and try again.
                 </p>
-                <Link href="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <Link href="/" className="bg-blue-500 lg:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200">
                     Back to list
                 </Link>
             </main>
@@ -65,7 +65,7 @@ export default function Details({ params }) {
 
     if (!pokemonDetails) {
         return (
-            <main className="flex min-h-screen flex-col items-center justify-center p-24">
+            <main className="flex min-h-screen flex-col items-center justify-center p-24 font-dmsans">
                 <h1 className="text-4xl font-bold">Loading...</h1>
             </main>
         );
@@ -83,26 +83,28 @@ export default function Details({ params }) {
         };
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center p-12">
+        <main className="flex min-h-screen flex-col items-center justify-center p-12 font-dmsans">
             <div className="flex flex-col items-center lg:w-auto w-full">
-                <h2 className="text-xl text-center">#{pokemonDetails.id.toString().padStart(3, '0')}</h2>
-                <h1 className="text-4xl font-bold text-center capitalize">
-                    {pokemonDetails.name}
-                </h1>
-                <div className="mt-2 flex flex-row justify-center items-center">
-                    <ul className="flex flex-row justify-center items-center gap-3">
-                        {pokemonDetails.types.map((type) => (
-                            <li 
-                                key={type.type.name} 
-                                className="capitalize text-white px-3 py-1 rounded-3xl" 
-                                style={{ backgroundColor: typeColors[type.type.name] }}
-                            >
-                                {type.type.name}
-                            </li>
-                        ))}
-                    </ul>
+                <div className="animate-fade-in">
+                    <h2 className="text-xl text-center">#{pokemonDetails.id.toString().padStart(3, '0')}</h2>
+                    <h1 className="text-4xl font-bold text-center capitalize">
+                        {pokemonDetails.name.replace(/-/g, ' ')}
+                    </h1>
+                    <div className="mt-2 flex flex-row justify-center items-center">
+                        <ul className="flex flex-row justify-center items-center gap-3">
+                            {pokemonDetails.types.map((type) => (
+                                <li 
+                                    key={type.type.name} 
+                                    className="capitalize text-white px-3 py-1 rounded-3xl" 
+                                    style={{ backgroundColor: typeColors[type.type.name] }}
+                                >
+                                    {type.type.name}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: '100ms' }}>
                     <img
                         src={selectedSprite}
                         alt={pokemonDetails.name}
@@ -122,7 +124,7 @@ export default function Details({ params }) {
                 </div>
                 <div className="mt-8 w-full pt-10 pb-4 px-4 rounded-lg relative shadow-gray-400 shadow-md animate-hanger" style={typeBackgroundStyle}>
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#FEDCC8] shadow-gray-400 shadow-inner"></div>
-                    <div className="grid grid-cols-2 justify-start items-start gap-4 py-4 px-4 bg-gray-100 rounded-lg">
+                    <div className="grid grid-cols-2 justify-start items-start gap-4 py-4 lg:px-4 bg-white rounded-lg">
                         <div className="flex flex-col justify-start items-end border-r -mr-2 pr-2">
                             <div className="flex flex-col justify-start items-end">
                                 <h3 className="font-bold">Abilities</h3>
@@ -155,7 +157,7 @@ export default function Details({ params }) {
                 </div>
             </div>
             <div className="flex flex-col items-center">
-                <Link href="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8">
+                <Link href="/" className="bg-blue-500 lg:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8 transition-colors duration-200">
                     Back to list
                 </Link>
             </div>

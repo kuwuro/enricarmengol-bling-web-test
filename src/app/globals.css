@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-display: swap;
+    src: url(../assets/dmsans.woff2) format('woff2');
+  }
+}
+
 body {
   background-image: url("../assets/wallpaper.jpg");
   background-size: fill;

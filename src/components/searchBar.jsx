@@ -23,9 +23,9 @@ export default function SearchBar() {
   };
 
   return (
-    <div className='sticky top-0 flex flex-col gap-3 lg:pt-12 pt-10 pb-6 lg:w-4/12 w-full justify-center items-center bg-[#FEDCC8]'>        
+    <div className='sticky top-0 flex flex-col gap-3 lg:pt-12 pt-10 pb-6 lg:w-6/12 w-auto justify-center items-center bg-[#FEDCC8] z-10 animate-fade-in'>        
         <h2 className="text-4xl font-bold text-center">PokédexEnric</h2>
-        <form onSubmit={handleSubmit} className="flex gap-2 md:w-auto w-11/12 mb-6">
+        <form onSubmit={handleSubmit} className="flex gap-2 w-9/12 mb-6 justify-center items-center">
           <input
               id="search"
               type="text"
@@ -36,7 +36,7 @@ export default function SearchBar() {
           />
           <button
               type="submit"
-              className="bg-blue-500 lg:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 lg:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
           >
               Search
           </button>
