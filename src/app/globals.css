@@ -13,6 +13,7 @@
 
 body {
   background-image: url("../assets/wallpaper.jpg");
+  background-color: #FEDCC8;
   background-size: fill;
   background-attachment: fixed;
 }
