@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-image: url('../assets/wallpaper.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+body {
+  background-image: url("../assets/wallpaper.jpg");
+  background-size: fill;
+  background-attachment: fixed;
 }
 
-.animate-shake{
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+.animate-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
-  
+
 @keyframes shake {
-    10%, 90% {
-        transform: translate3d(-1px, 0, 0);
-    }
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-    20%, 80% {
-        transform: translate3d(2px, 0, 0);
-    }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-    30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
-    }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-    40%, 60% {
-        transform: translate3d(4px, 0, 0);
-    }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
-.animate-hanger{
-    animation: hanger 0.4s cubic-bezier(.08,.43,.22,.93) both;
+.animate-hanger {
+  animation: hanger 0.4s cubic-bezier(0.08, 0.43, 0.22, 0.93) both;
 }
 
 @keyframes hanger {
-    0% { transform: rotate(9deg) translateX(-100px); }
-    60% { transform: rotate(0deg) translateX(0px); }
-    80% { transform: rotate(-1deg) translateX(5px); }
-    100% { transform: rotate(0deg) translateX(0px); }
+  0% {
+    transform: rotate(9deg) translateX(-100px);
+  }
+  60% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  80% {
+    transform: rotate(-1deg) translateX(5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.08, 0.43, 0.22, 0.93) both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

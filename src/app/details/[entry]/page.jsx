@@ -83,7 +83,7 @@ export default function Details({ params }) {
         };
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center lg:p-24 p-12">
+        <main className="flex min-h-screen flex-col items-center justify-center p-12">
             <div className="flex flex-col items-center lg:w-auto w-full">
                 <h2 className="text-xl text-center">#{pokemonDetails.id.toString().padStart(3, '0')}</h2>
                 <h1 className="text-4xl font-bold text-center capitalize">
@@ -92,7 +92,13 @@ export default function Details({ params }) {
                 <div className="mt-2 flex flex-row justify-center items-center">
                     <ul className="flex flex-row justify-center items-center gap-3">
                         {pokemonDetails.types.map((type) => (
-                            <li key={type.type.name} className="capitalize">{type.type.name}</li>
+                            <li 
+                                key={type.type.name} 
+                                className="capitalize text-white px-3 py-1 rounded-3xl" 
+                                style={{ backgroundColor: typeColors[type.type.name] }}
+                            >
+                                {type.type.name}
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -100,7 +106,7 @@ export default function Details({ params }) {
                     <img
                         src={selectedSprite}
                         alt={pokemonDetails.name}
-                        className="w-52 h-52 my-4"
+                        className="w-60 h-60 my-4"
                     />
                     <div className="flex gap-2">
                         {spriteImages.map((sprite, index) => (
