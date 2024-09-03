@@ -116,7 +116,7 @@ export default function Details({ params }) {
                 </div>
                 <div className="mt-8 w-full pt-10 pb-4 px-4 rounded-lg relative shadow-gray-400 shadow-md animate-hanger" style={typeBackgroundStyle}>
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#FEDCC8] shadow-gray-400 shadow-inner"></div>
-                    <div className="grid grid-cols-2 justify-start items-start gap-4 py-4 bg-gray-100 rounded-lg">
+                    <div className="grid grid-cols-2 justify-start items-start gap-4 py-4 px-4 bg-gray-100 rounded-lg">
                         <div className="flex flex-col justify-start items-end border-r -mr-2 pr-2">
                             <div className="flex flex-col justify-start items-end">
                                 <h3 className="font-bold">Abilities</h3>
