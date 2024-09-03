@@ -1,23 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function SearchBar() {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
+  const searchRef = useRef(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (query.trim()) {
       router.push(`/details/${query.trim().toLowerCase()}`);
     } else if (query.trim() === '') {
-      document.getElementById('search').classList.add('animate-shake');
-      document.getElementById('search').classList.add('border-red-500');
-      document.getElementById('search').focus();
+      searchRef.current.classList.add('animate-shake');
+      searchRef.current.classList.add('border-red-500');
+      searchRef.current.focus();
       setTimeout(() => {
-        document.getElementById('search').classList.remove('animate-shake');
-        document.getElementById('search').classList.remove('border-red-500');
+        searchRef.current.classList.remove('animate-shake');
+        searchRef.current.classList.remove('border-red-500');
       }, 800);
     }
   };

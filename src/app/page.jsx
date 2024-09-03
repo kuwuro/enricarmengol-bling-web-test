@@ -6,28 +6,8 @@ import SearchBar from '../components/searchBar';
 
 export default function Home() {
   const [pokemon, setPokemon] = useState([]);
-  const [nextUrl, setNextUrl] = useState(null);
+  const [nextUrl, setNextUrl] = useState("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
-      const data = await response.json();
-      
-      const detailedPokemon = await Promise.all(
-        data.results.map(async (poke) => {
-          const pokeDetails = await fetch(poke.url);
-          const pokeData = await pokeDetails.json();
-          return { ...poke, sprite: pokeData.sprites.front_default };
-        })
-      );
-
-      setPokemon(detailedPokemon);
-      setNextUrl(data.next);
-    };
-
-    fetchInitialData();
-  }, []);
 
   const loadMore = async () => {
     if (!nextUrl || loading) return;
@@ -54,6 +34,10 @@ export default function Home() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadMore();
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center lg:p-20 p-12 gap-5 font-dmsans">

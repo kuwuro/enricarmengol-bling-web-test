@@ -7,12 +7,12 @@
     font-family: 'DM Sans';
     font-style: normal;
     font-display: swap;
-    src: url(../assets/dmsans.woff2) format('woff2');
+    src: url(/dmsans.woff2) format('woff2');
   }
 }
 
 body {
-  background-image: url("../assets/wallpaper.jpg");
+  background-image: url("/wallpaper.jpg");
   background-color: #FEDCC8;
   background-size: fill;
   background-attachment: fixed;
